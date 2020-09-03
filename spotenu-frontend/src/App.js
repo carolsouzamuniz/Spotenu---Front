@@ -1,14 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { SignupUserPage }from './pages/SignupUserPage';
-import { SignupBandPage } from './pages/SignupBandPage';
+import { SignupUserPage }from './components/SignupPages/SignupUserPage';
+import { SignupBandPage } from './components/SignupPages/SignupBandPage';
+import { SignupAdminPage } from './components/SignupPages/SignupAdminPage';
 
 function App() {
   return (
     <div>
-      {/* <SignupUserPage/> */}
+      <SignupUserPage/>
+      <SignupAdminPage/>
       <SignupBandPage/>
+
     </div>
   );
 }

@@ -1,6 +1,10 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from 'react';
 import axios from 'axios';
+import { useForm } from './../../../hooks/hooks';
+import { useHistory } from 'react-router-dom';
+
+
+import styled from 'styled-components';
 
 const SignupPageWrapper = styled.div`
     display: flex;
@@ -12,40 +16,38 @@ const SignupPageWrapper = styled.div`
         padding-bottom: 16px;
     }
 `
-const useForm = initialValues => {
-    const [form, setForm] = useState(initialValues);
-  
-    const onChange = (name, value) => {
-      const newForm = { ...form, [name]: value };
-      setForm(newForm);
-    };
-  
-    return { form, onChange };
-  };
-  
+
 export const SignupUserPage = () => {
-    const { form, onChange } = useForm({
+    const { form, onChange, resetForm } = useForm({
         name:"", 
         email:"", 
         nickname:"", 
         password: ""
-    });
+    })
+
+    const { name, email, nickname, password } = form;
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
-        onChange(name, value);
-    };
+        const { name, value } = event.target;
 
+        onChange(name, value);
+    }
+
+    
     const handleOnSubmit = (event) => {
         event.preventDefault()
 
         const result = axios.post('http://localhost:3003/user/signupUSER', form).then((response) => {
             window.localStorage.setItem("token", response.data.token)
+            alert('Band successfully registered. Waiting for approval from an administrator')
         }).catch((error) => {
             console.log(error.response.data)
+            window.alert(('It was not possible to register. Try again later'))
         })
     }
-    
+
+    const history = useHistory();
+
     return <SignupPageWrapper>
         <h3>Cadastre-se</h3>
         <form onSubmit={handleOnSubmit}>
@@ -94,6 +96,7 @@ export const SignupUserPage = () => {
             <input type="submit" value="Cadastrar" />
         </form>
     </SignupPageWrapper>
-      
 }
+      
+
 
