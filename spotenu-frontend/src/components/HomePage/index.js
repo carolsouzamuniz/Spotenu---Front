@@ -2,5 +2,5 @@ import React from "react";
 import { PageTitle } from "../PageTitle";
 
 export const HomePage = () => {
-    return <PageTitle title={'Spotenu'}/>
+    return <PageTitle title={'Home'}/>
 };

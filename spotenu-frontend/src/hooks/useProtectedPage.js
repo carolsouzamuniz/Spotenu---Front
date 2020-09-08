@@ -6,8 +6,9 @@ export const useProtectedPage = () => {
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
+    const userType = window.localStorage.getItem("userType")
 
-    if (!token) {
+    if (!token || userType !== "ADMIN") {
       history.push("/user/login");
     }
   }, []);

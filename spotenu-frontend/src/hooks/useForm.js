@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useForm = (initialValues) => {
+export const useForm = initialValues => {
   const [form, setForm] = useState(initialValues);
 
   const onChangeInput = (event) => {
@@ -10,5 +10,6 @@ export const useForm = (initialValues) => {
     setForm({ ...form, [fielName]: newValue });
   };
 
-  return [form, onChangeInput];
+  return {form, onChangeInput};
 };
+
