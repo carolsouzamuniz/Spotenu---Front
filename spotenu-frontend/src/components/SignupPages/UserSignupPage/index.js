@@ -4,7 +4,9 @@ import { useHistory } from "react-router-dom";
 import { PageTitle } from "../../PageTitle";
 import { TextField } from "@material-ui/core";
 import { useForm } from "../../../hooks/useForm";
-import { SignupPageWrapper } from "./style";
+import { ButtonWrapper } from "../../Styles/Button";
+import { FormWrapper } from "../../Styles/Form";
+
 
 export const UserSignupPage = () => {
   const { form, onChange, resetForm } = useForm({
@@ -53,7 +55,7 @@ export const UserSignupPage = () => {
   return (
     <div>
       <PageTitle title={"Cadastro"} />
-      <SignupPageWrapper onSubmit={onSubmitInput}>
+      <FormWrapper onSubmit={onSubmitInput}>
         <TextField
           label="Nome"
           variant="outlined"
@@ -92,8 +94,9 @@ export const UserSignupPage = () => {
           pattern="[A-z0-9,\W]{6,}"
           required
         />
-        <input type="submit" value="Cadastrar" />
-      </SignupPageWrapper>
+        {/* <input type="submit" value="Cadastrar" /> */}
+        <ButtonWrapper>Cadastrar</ButtonWrapper>
+      </FormWrapper>
     </div>
   );
 };

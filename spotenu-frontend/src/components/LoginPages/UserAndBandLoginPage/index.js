@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { PageTitle } from "../../PageTitle";
 import { useForm } from "../../../hooks/useForm";
@@ -7,7 +7,7 @@ import { TextField } from "@material-ui/core";
 import { ButtonWrapper } from "../../Styles/Button";
 import { FormWrapper } from "../../Styles/Form";
 
-export const AdminLoginPage = () => {
+export const UserAndBandLoginPage = () => {
   const history = useHistory();
 
   const { form, onChangeInput } = useForm({
@@ -27,7 +27,7 @@ export const AdminLoginPage = () => {
       .post("http://localhost:3003/user/login", body)
       .then((response) => {
         window.localStorage.setItem("token", response.data.token);
-        history.push("/admin"); //página do admin logado
+        history.push("/user"); //página do ususario logado
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -37,7 +37,7 @@ export const AdminLoginPage = () => {
 
   return (
     <div>
-      <PageTitle title={"Login-Admin"} />
+      <PageTitle title={"Login"} />
       <FormWrapper onSubmit={onSubmitLogin}>
         <TextField
           label="E-mail"
@@ -64,7 +64,8 @@ export const AdminLoginPage = () => {
           required
         />
         {/* <input type="submit" value="Entrar" /> */}
-        <ButtonWrapper>Cadastrar</ButtonWrapper>
+        <ButtonWrapper>Entrar</ButtonWrapper>
+        <Link to={"/login-admin"}>Logar como Administrador</Link>
       </FormWrapper>
     </div>
   );

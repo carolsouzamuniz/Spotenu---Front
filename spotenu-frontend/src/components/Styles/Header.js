@@ -18,6 +18,7 @@ const HeaderContainer = styled.div`
   a {
     text-decoration: none;
     color: #fd7d02;
+    font-size: 130%;
   }
 `;
 
@@ -34,7 +35,7 @@ export const Header = () => {
           <a href="/signup-band">Tem uma banda?</a>
         </li>
         <li>
-          <a href="/login-user">Login</a>
+          <a href="/login">Login</a>
         </li>
       </ul>
     </HeaderContainer>

@@ -6,9 +6,6 @@ export const MainContainer = styled.div`
 
 `
 
-export const MainImage = styled.img`
-    background-image: url('../../Image/fundo.jpeg') no-repeat;
 
-`
 
 
