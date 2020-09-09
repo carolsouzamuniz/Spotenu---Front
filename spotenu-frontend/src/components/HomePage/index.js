@@ -1,6 +1,11 @@
 import React from "react";
-import { PageTitle } from "../PageTitle";
+import { PageTitle } from "../PageTitle"; 
+import { MainContainer, MainImage } from './style';
 
 export const HomePage = () => {
-    return <PageTitle title={'Home'}/>
+  return <MainContainer>
+      <MainImage/>
+      <PageTitle title={"Home"} />
+    </MainContainer>
 };
+

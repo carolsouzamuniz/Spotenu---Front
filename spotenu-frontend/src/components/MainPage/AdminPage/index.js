@@ -13,7 +13,7 @@ export const AdminPage = () => {
         .get('http://localhost:3003/view-bands',
         {
             headers: {
-                Authorization: window.localStorage.getItem('token')
+                authenticator: window.localStorage.getItem('token')
             }
         })
         .then((response) => {

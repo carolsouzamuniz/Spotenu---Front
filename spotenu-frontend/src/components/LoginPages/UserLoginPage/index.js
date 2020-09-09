@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { PageTitle } from "../../PageTitle";
 import { useForm } from "../../../hooks/useForm";
@@ -31,6 +31,7 @@ export const UserLoginPage = () => {
         console.log(error.response.data);
         window.alert("Unable to login");
       });
+  }
 
     return <div>
         <PageTitle title={"Login-user"} />
@@ -61,6 +62,8 @@ export const UserLoginPage = () => {
           />
           <input type="submit" value="Entrar" />
         </form>
-    </div>
-  };
-};
+
+        <Link text-decotarion={"none"} to={"/login-admin"}>Logar como Administrador</Link>
+      </div>
+}
+

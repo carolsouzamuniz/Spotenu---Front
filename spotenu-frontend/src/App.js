@@ -14,9 +14,21 @@ import { AdminLoginPage } from './components/LoginPages/AdminLoginPage';
 import { AdminPage } from './components/MainPage/AdminPage';
 import { UserPage } from './components/MainPage/UserPage';
 import { BandPage } from './components/MainPage/BandPage';
+import { Header } from "./components/Styles/Header";
+import { Main } from "./components/Styles/Main";
+import styled from "styled-components";
+
+const Container = styled.div`
+  height: 100vh;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+`
 
 function App() {
-  return <div>
+  return <Container>
+    <Header/>
+    <Main/>
     <Router>
       <Switch>
         <Route exact path="/">
@@ -57,7 +69,7 @@ function App() {
 
       </Switch>
     </Router>
-  </div>
+  </Container>
 }
 
 export default App;
