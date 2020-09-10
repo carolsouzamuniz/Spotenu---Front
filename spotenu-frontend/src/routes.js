@@ -12,27 +12,25 @@ import { BandPage } from "./components/MainPage/BandPage";
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route component={HomePage} exact path="/home" />
-        <Route component={UserSignupPage} exact path="/signup-user" />
-        <Route component={BandSignupPage} exact path="/signup-band" />
-        <Route component={AdminSignupPage} exact path="/signup-admin" />
-        <Route component={UserAndBandLoginPage} exact path="/login" />
-        <Route component={AdminLoginPage} exact path="/login-admin" />
-        <Route component={AdminPage} exact path="/admin" />
-        <Route component={AdminPage} exact path="/admin" />
-        <Route component={UserPage} exact path="/user" />
-        <Route component={BandPage} exact path="/band" />
-        <Route path="/">
-          <h1>
-            Opa!
-            <br /> <br />
-            Página não encontrada.
-          </h1>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route component={HomePage} exact path="/home" />
+      <Route component={UserSignupPage} exact path="/signup-user" />
+      <Route component={BandSignupPage} exact path="/signup-band" />
+      <Route component={AdminSignupPage} exact path="/signup-admin" />
+      <Route component={UserAndBandLoginPage} exact path="/login" />
+      <Route component={AdminLoginPage} exact path="/login-admin" />
+      <Route component={AdminPage} exact path="/admin" />
+      <Route component={AdminPage} exact path="/admin" />
+      <Route component={UserPage} exact path="/user" />
+      <Route component={BandPage} exact path="/band" />
+      <Route path="/">
+        <h1>
+          Opa!
+          <br /> <br />
+          Página não encontrada.
+        </h1>
+      </Route>
+    </Switch>
   );
 };
 

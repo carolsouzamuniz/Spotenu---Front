@@ -3,7 +3,8 @@ import { Header } from "./components/Styles/Header";
 import { Footer } from "./components/Styles/Footer";
 import styled from "styled-components";
 import Routes from './routes';
-import fundo from './img/fundo.jpeg'
+import fundo from './img/fundo.jpeg';
+import { BrowserRouter } from "react-router-dom";
 
 export const AppWrapper = styled.main`
   margin: 0;
@@ -22,9 +23,11 @@ export const AppWrapper = styled.main`
 function App() {
   return (
     <AppWrapper>
-      <Header/>
-      <Routes/>
-      <Footer/>
+      <BrowserRouter>
+        <Header/>
+        <Routes/>
+        <Footer/>
+      </BrowserRouter>
     </AppWrapper>
   );
 }

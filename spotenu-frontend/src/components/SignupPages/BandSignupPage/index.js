@@ -101,6 +101,7 @@ export const BandSignupPage = () => {
           value={form.password}
           onChange={onChangeInput}
           pattern="[A-z0-9,\W]{6,}"
+          helperText="No mínimo 6 caracteres"
           required
         />
         

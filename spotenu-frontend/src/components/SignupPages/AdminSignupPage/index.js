@@ -89,6 +89,7 @@ export const AdminSignupPage = () => {
           value={form.password}
           onChange={onChangeInput}
           pattern="[A-z0-9,\W]{10,}"
+          helperText="No mínimo 10 caracteres"
           required
         />
         {/* <input type="submit" value="Cadastrar" /> */}
