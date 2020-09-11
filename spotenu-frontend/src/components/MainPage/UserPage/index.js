@@ -1,9 +1,32 @@
-import React from 'react';
-import { PageTitle } from '../../PageTitle';
+import React from "react";
+import { ItensList } from "./ItensList";
+import { MenuUser } from "./MenuUser";
+import {
+  UserContainer,
+  ItensContainer,
+  MenuContainer,
+  ItensElements,
+} from "./style";
 
 export const UserPage = () => {
-   
-    return <div>
-        <PageTitle title={'Página do usuário'}/>
-    </div>
-}
+  return (
+    <UserContainer>
+      <MenuContainer>
+        <MenuUser />
+      </MenuContainer>
+
+      <ItensContainer>
+        <ItensElements>
+          <ItensList />
+          <ItensList />
+          <ItensList />
+          <ItensList />
+          <ItensList />
+          <ItensList />
+          <ItensList />
+          <ItensList />
+        </ItensElements>
+      </ItensContainer>
+    </UserContainer>
+  );
+};

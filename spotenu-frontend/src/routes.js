@@ -20,7 +20,6 @@ const Routes = () => {
       <Route component={UserAndBandLoginPage} exact path="/login" />
       <Route component={AdminLoginPage} exact path="/login-admin" />
       <Route component={AdminPage} exact path="/admin" />
-      <Route component={AdminPage} exact path="/admin" />
       <Route component={UserPage} exact path="/user" />
       <Route component={BandPage} exact path="/band" />
       <Route path="/">
