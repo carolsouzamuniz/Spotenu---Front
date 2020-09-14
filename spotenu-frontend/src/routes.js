@@ -9,6 +9,7 @@ import { AdminLoginPage } from "./components/LoginPages/AdminLoginPage";
 import { AdminPage } from "./components/MainPage/AdminPage";
 import { UserPage } from "./components/MainPage/UserPage";
 import { BandPage } from "./components/MainPage/BandPage";
+import { RegisterMusic } from "./components/MainPage/BandPage/RegisterMusic";
 
 const Routes = () => {
   return (
@@ -22,6 +23,7 @@ const Routes = () => {
       <Route component={AdminPage} exact path="/admin" />
       <Route component={UserPage} exact path="/user" />
       <Route component={BandPage} exact path="/band" />
+
       <Route path="/">
         <h1>
           Opa!

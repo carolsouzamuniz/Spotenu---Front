@@ -8,13 +8,20 @@ import { ButtonWrapper } from "../../Styles/Button";
 import { FormWrapper } from "../../Styles/Form";
 
 export const UserAndBandLoginPage = () => {
-  const history = useHistory();
-
   const { form, onChangeInput } = useForm({
     email: "",
     nickname: "",
     password: "",
   });
+
+  const { name, email, nickname, password } = form;
+
+  const onChangeInputValues = (event) => {
+    const { name, value } = event.target;
+    onChangeInput(name, value);
+  };
+
+  const history = useHistory();
 
   const onSubmitLogin = (event) => {
     event.prefentDefault();
@@ -44,7 +51,7 @@ export const UserAndBandLoginPage = () => {
           type="email"
           name="email"
           value={form.email}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -52,7 +59,7 @@ export const UserAndBandLoginPage = () => {
           type="text"
           name="nickname"
           value={form.nickname}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -60,11 +67,10 @@ export const UserAndBandLoginPage = () => {
           type="password"
           name="password"
           value={form.password}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
-        {/* <input type="submit" value="Entrar" /> */}
-        <ButtonWrapper>Entrar</ButtonWrapper>
+        <ButtonWrapper type="submit" value="Entrar"/>
         <Link to={"/login-admin"}>Logar como Administrador</Link>
       </FormWrapper>
     </div>

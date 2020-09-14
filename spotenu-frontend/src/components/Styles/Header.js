@@ -13,6 +13,7 @@ const HeaderContainer = styled.div`
   left: 0;
   top: 0;
   width: 100%;
+  height: 12vh;
 
   li {
     display: inline-block;
@@ -23,6 +24,7 @@ const HeaderContainer = styled.div`
     text-decoration: none;
     color: white;
     font-size: 120%;
+    margin: 0;
     :hover {
       color: #fd7d02;
     }
@@ -66,7 +68,7 @@ export const Header = () => {
         <img
           onClick={onClickGoToHome}
           src={logo}
-          alt="Logo Spotenu. Reinvendando a música."
+          alt="Logo Spotenu. Reinventando a música."
         />
       </LogoContainer>
       <MenuContainer>

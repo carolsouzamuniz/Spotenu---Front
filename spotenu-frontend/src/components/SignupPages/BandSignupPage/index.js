@@ -8,7 +8,7 @@ import { ButtonWrapper } from "../../Styles/Button";
 import { FormWrapper } from "../../Styles/Form";
 
 export const BandSignupPage = () => {
-  const { form, onChange, resetForm } = useForm({
+  const { form, onChangeInput } = useForm({
     name: "",
     email: "",
     nickname: "",
@@ -16,11 +16,11 @@ export const BandSignupPage = () => {
     password: "",
   });
 
-  //const { name, email, nickname, description, password } = form;
+  const { name, email, nickname, description, password } = form;
 
-  const onChangeInput = (event) => {
+  const onChangeInputValues = (event) => {
     const { name, value } = event.target;
-    onChange(name, value);
+    onChangeInput(name, value);
   };
 
   const history = useHistory();
@@ -44,7 +44,7 @@ export const BandSignupPage = () => {
           "Band successfully registered. Waiting for approval from an administrator"
         );
         history.push("/user");
-        resetForm();
+        //precisa mandar pra página de banda depois de aprovado
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -62,7 +62,7 @@ export const BandSignupPage = () => {
           type="text"
           name="name"
           value={form.name}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -71,7 +71,7 @@ export const BandSignupPage = () => {
           type="email"
           name="email"
           value={form.email}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           required
         />
@@ -81,7 +81,7 @@ export const BandSignupPage = () => {
           type="text"
           name="nickname"
           value={form.nickname}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -90,7 +90,9 @@ export const BandSignupPage = () => {
           type="text"
           name="description"
           value={form.description}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
+          multiline
+          rows={4}
           required
         />
         <TextField
@@ -99,15 +101,13 @@ export const BandSignupPage = () => {
           type="password"
           name="password"
           value={form.password}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[A-z0-9,\W]{6,}"
           helperText="No mínimo 6 caracteres"
           required
         />
         
-        {/* <input type="submit" value="Cadastrar" /> */}
-
-        <ButtonWrapper>Cadastrar</ButtonWrapper>
+        <ButtonWrapper type="submit" value="Cadastrar sua banda" />
       </FormWrapper>
     </div>
   );

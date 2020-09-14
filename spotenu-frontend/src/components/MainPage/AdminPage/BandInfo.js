@@ -1,9 +1,7 @@
 import React from "react";
-import {
-  ListItem,
-  ListItemSecondaryAction,
-  IconButton,
-} from "@material-ui/core";
+import { ListItem, IconButton, Card, CardContent } from "@material-ui/core";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
 export const BandInfo = () => {
   const approveBand = () => {
@@ -14,27 +12,18 @@ export const BandInfo = () => {
     console.log("rejeitou");
   };
 
-  const { nickname, description } = props.info;
-
   return (
     <div>
       <Card>
         <CardContent>
-          <Typography variant="h5" gutterBottom>
-            Informações da Banda
-          </Typography>
-          <TripInfoItem infoName={"Nickname"} info={nickname} />
-          <TripInfoItem infoName={"Descrição"} info={description} />
-          <ListItem>
-            <ListItemSecondaryAction>
-              <IconButton onClick={approveBand}>
-                <ThumbUpIcon />
-              </IconButton>
-              <IconButton onClick={rejectBand}>
-                <ThumbDownIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
+          <p>Nome da banda</p>
+          <p>Descrição da banda</p>
+          <IconButton onClick={approveBand}>
+            <ThumbUpIcon />
+          </IconButton>
+          <IconButton onClick={rejectBand}>
+            <ThumbDownIcon />
+          </IconButton>
         </CardContent>
       </Card>
     </div>

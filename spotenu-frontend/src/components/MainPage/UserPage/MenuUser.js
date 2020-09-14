@@ -1,13 +1,17 @@
-import React from 'react';
-import { MenuContainer } from './style';
+import React from "react";
+import { MenuContainer } from "./style";
 
 export const MenuUser = () => {
-    return <MenuContainer>
-        <ul>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-
-        </ul>
+  return (
+    <MenuContainer>
+      
+        <p><a href="#">Em alta</a></p>
+        <p><a href="#">Lançamentos</a></p>
+        <p><a href="#">Rock</a></p>
+        <p><a href="#">POP</a></p>
+        <p><a href="#">Sertaneja</a></p>
+        <p><a href="#">Forró</a></p>
+    
     </MenuContainer>
-}
+  );
+};

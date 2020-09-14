@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ButtonWrapper = styled.button`
+export const ButtonWrapper = styled.input`
   width: 100%;
   height: 48px;
   border: none;

@@ -9,7 +9,7 @@ const FooterContainer = styled.div`
   color: #fd7d02;
   padding: 4px 0;
   text-align: left;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   li {

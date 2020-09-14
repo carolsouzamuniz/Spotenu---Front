@@ -9,18 +9,18 @@ import { FormWrapper } from "../../Styles/Form";
 
 
 export const UserSignupPage = () => {
-  const { form, onChange, resetForm } = useForm({
+  const { form, onChangeInput } = useForm({
     name: "",
     email: "",
     nickname: "",
     password: "",
   });
 
-  //const { name, email, nickname, password } = form;
+  const { name, email, nickname, password } = form;
 
-  const onChangeInput = (event) => {
+  const onChangeInputValues = (event) => {
     const { name, value } = event.target;
-    onChange(name, value);
+    onChangeInput(name, value);
   };
 
   const history = useHistory();
@@ -44,7 +44,6 @@ export const UserSignupPage = () => {
           "Your registration was successful"
         );
         history.push("/user"); //voltar para página do usuário logado (main/user)
-        resetForm();
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -62,7 +61,7 @@ export const UserSignupPage = () => {
           type="text"
           name="name"
           value={form.name}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -71,7 +70,7 @@ export const UserSignupPage = () => {
           type="email"
           name="email"
           value={form.email}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           required
         />
@@ -81,7 +80,7 @@ export const UserSignupPage = () => {
           type="text"
           name="nickname"
           value={form.nickname}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -90,13 +89,12 @@ export const UserSignupPage = () => {
           type="password"
           name="password"
           value={form.password}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[A-z0-9,\W]{6,}"
           helperText="No mínimo 6 caracteres"
           required
         />
-        {/* <input type="submit" value="Cadastrar" /> */}
-        <ButtonWrapper>Cadastrar</ButtonWrapper>
+        <ButtonWrapper type="submit" value="Cadastar"/>
       </FormWrapper>
     </div>
   );
