@@ -9,12 +9,11 @@ import { FormWrapper } from "../../Styles/Form";
 
 export const UserAndBandLoginPage = () => {
   const { form, onChangeInput } = useForm({
-    email: "",
-    nickname: "",
+    emailOrNickname: "",
     password: "",
   });
 
-  const { name, email, nickname, password } = form;
+  const { emailOrNickname, password } = form;
 
   const onChangeInputValues = (event) => {
     const { name, value } = event.target;
@@ -24,10 +23,9 @@ export const UserAndBandLoginPage = () => {
   const history = useHistory();
 
   const onSubmitLogin = (event) => {
-    event.prefentDefault();
+    event.preventDefault()
     const body = {
-      email: form.email,
-      nickname: form.nickname,
+      emailOrNickname: form.emailOrNickname,
       password: form.password,
     };
     axios
@@ -47,18 +45,10 @@ export const UserAndBandLoginPage = () => {
       <PageTitle title={"Login"} />
       <FormWrapper onSubmit={onSubmitLogin}>
         <TextField
-          label="E-mail"
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={onChangeInputValues}
-          required
-        />
-        <TextField
-          label="Nickname"
+          label="E-mail ou Nickname"
           type="text"
-          name="nickname"
-          value={form.nickname}
+          name="emailOrNickname"
+          value={form.emailOrNickname}
           onChange={onChangeInputValues}
           required
         />

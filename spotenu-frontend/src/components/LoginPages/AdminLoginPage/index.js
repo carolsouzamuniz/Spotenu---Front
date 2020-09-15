@@ -23,16 +23,17 @@ export const AdminLoginPage = () => {
   const history = useHistory();
 
   const onSubmitLogin = (event) => {
-    event.prefentDefault();
+    event.preventDefault()
     const body = {
-      email: form.email,
-      nickname: form.nickname,
+      emailOrNickname: form.emailOrNickname,
       password: form.password,
     };
     axios
       .post("http://localhost:3003/user/login", body)
       .then((response) => {
         window.localStorage.setItem("token", response.data.token);
+        window.localStorage.setItem("userType", response.data.type);
+
         history.push("/admin"); //página do admin logado
       })
       .catch((error) => {
@@ -46,18 +47,10 @@ export const AdminLoginPage = () => {
       <PageTitle title={"Login-Admin"} />
       <FormWrapper onSubmit={onSubmitLogin}>
         <TextField
-          label="E-mail"
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={onChangeInputValues}
-          required
-        />
-        <TextField
-          label="Nickname"
+          label="E-mail ou Nickname"
           type="text"
-          name="nickname"
-          value={form.nickname}
+          name="emailOrNickname"
+          value={form.emailOrNickname}
           onChange={onChangeInputValues}
           required
         />
