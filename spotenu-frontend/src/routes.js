@@ -14,7 +14,7 @@ import { RegisterMusic } from "./components/MainPage/BandPage/RegisterMusic";
 const Routes = () => {
   return (
     <Switch>
-      <Route component={HomePage} exact path="/home" />
+      <Route component={HomePage} exact path="/" />
       <Route component={UserSignupPage} exact path="/signup-user" />
       <Route component={BandSignupPage} exact path="/signup-band" />
       <Route component={AdminSignupPage} exact path="/signup-admin" />
@@ -23,14 +23,6 @@ const Routes = () => {
       <Route component={AdminPage} exact path="/admin" />
       <Route component={UserPage} exact path="/user" />
       <Route component={BandPage} exact path="/band" />
-
-      <Route path="/">
-        <h1>
-          Opa!
-          <br /> <br />
-          Página não encontrada.
-        </h1>
-      </Route>
     </Switch>
   );
 };

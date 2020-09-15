@@ -59,7 +59,7 @@ const MenuContainer = styled.div`
 export const Header = () => {
   const history = useHistory();
   const onClickGoToHome = () => {
-    history.push("/home");
+    history.push("/");
   };
 
   return (
