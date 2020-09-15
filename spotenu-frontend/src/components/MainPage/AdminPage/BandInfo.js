@@ -1,42 +1,45 @@
 import React from "react";
+import axios from "axios";
+import { IconButton } from "@material-ui/core";
+import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import {
-  ListItem,
-  ListItemSecondaryAction,
-  IconButton,
-} from "@material-ui/core";
+  AdminContainer,
+  IconsContainer,
+  DescriptionContainer,
+  BandContainer,
+} from "./style";
 
-export const BandInfo = () => {
-  const approveBand = () => {
-    console.log("aprovou");
-  };
-
-  const rejectBand = () => {
+export const BandInfo = (props) => {
+  const rejectBand = (id) => {
     console.log("rejeitou");
   };
 
-  const { nickname, description } = props.info;
-
   return (
-    <div>
-      <Card>
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            Informações da Banda
-          </Typography>
-          <TripInfoItem infoName={"Nickname"} info={nickname} />
-          <TripInfoItem infoName={"Descrição"} info={description} />
-          <ListItem>
-            <ListItemSecondaryAction>
-              <IconButton onClick={approveBand}>
+    <AdminContainer>
+      {props.unapprovedBands.map((band) => {
+        
+        return (
+          <div>
+            <BandContainer>
+              <p>{band.name}</p>
+            </BandContainer>
+
+            <DescriptionContainer>
+              <p>{band.description}</p>
+            </DescriptionContainer>
+
+            <IconsContainer>
+              <IconButton onClick={() => props.approveBand(band.id)}>
                 <ThumbUpIcon />
               </IconButton>
               <IconButton onClick={rejectBand}>
                 <ThumbDownIcon />
               </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        </CardContent>
-      </Card>
-    </div>
+            </IconsContainer>
+          </div>
+        );
+      })}
+    </AdminContainer>
   );
 };

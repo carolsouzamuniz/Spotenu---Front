@@ -9,7 +9,7 @@ export const useProtectedPage = () => {
     const userType = window.localStorage.getItem("userType")
 
     if (!token || userType !== "ADMIN") {
-      history.push("/user/login");
+      history.push("/login");
     }
   }, []);
 };

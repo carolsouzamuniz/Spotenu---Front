@@ -4,9 +4,11 @@ import { useHistory } from "react-router-dom";
 import { PageTitle } from "../../PageTitle";
 import { TextField } from "@material-ui/core";
 import { useForm } from "../../../hooks/useForm";
+import { ButtonWrapper } from "../../Styles/Button";
+import { FormWrapper } from "../../Styles/Form";
 
 export const AdminSignupPage = () => {
-  const { form, onChange, resetForm } = useForm({
+  const { form, onChangeInput } = useForm({
     name: "",
     email: "",
     nickname: "",
@@ -15,9 +17,9 @@ export const AdminSignupPage = () => {
 
   const { name, email, nickname, password } = form;
 
-  const onChangeInput = (event) => {
+  const onChangeInputValues = (event) => {
     const { name, value } = event.target;
-    onChange(name, value);
+    onChangeInput(name, value);
   };
 
   const history = useHistory();
@@ -39,7 +41,6 @@ export const AdminSignupPage = () => {
         window.localStorage.setItem("userType", response.data.type);
         alert("Your registration was successful");
         history.push("/admin"); //voltar para a home já lodago
-        resetForm();
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -48,8 +49,8 @@ export const AdminSignupPage = () => {
   };
 
   return <div>
-      <PageTitle title={"Cadastro"} />
-      <form onSubmit={onSubmitInput}>
+      <PageTitle title={"Cadastro-admin"} />
+      <FormWrapper onSubmit={onSubmitInput}>
         
         <TextField
           label="Nome"
@@ -57,7 +58,7 @@ export const AdminSignupPage = () => {
           type="text"
           name="name"
           value={form.name}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -66,7 +67,7 @@ export const AdminSignupPage = () => {
           type="email"
           name="email"
           value={form.email}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           required
         />
@@ -76,7 +77,7 @@ export const AdminSignupPage = () => {
           type="text"
           name="nickname"
           value={form.nickname}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           required
         />
         <TextField
@@ -85,12 +86,13 @@ export const AdminSignupPage = () => {
           type="password"
           name="password"
           value={form.password}
-          onChange={onChangeInput}
+          onChange={onChangeInputValues}
           pattern="[A-z0-9,\W]{10,}"
+          helperText="No mínimo 10 caracteres"
           required
         />
-        <input type="submit" value="Cadastrar" />
-      </form>
+        <ButtonWrapper type="submit" value="Cadastrar" />
+      </FormWrapper>
   </div>
 }
 

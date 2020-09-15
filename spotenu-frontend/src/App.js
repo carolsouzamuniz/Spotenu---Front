@@ -1,75 +1,35 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-
-import { HomePage } from "./components/HomePage";
-import { UserSignupPage } from "./components/SignupPages/UserSignupPage";
-import { AdminSignupPage } from './components/SignupPages/AdminSignupPage';
-import { BandSignupPage } from './components/SignupPages/BandSignupPage';
-import { UserLoginPage } from './components/LoginPages/UserLoginPage';
-import { AdminLoginPage } from './components/LoginPages/AdminLoginPage';
-import { AdminPage } from './components/MainPage/AdminPage';
-import { UserPage } from './components/MainPage/UserPage';
-import { BandPage } from './components/MainPage/BandPage';
 import { Header } from "./components/Styles/Header";
-import { Main } from "./components/Styles/Main";
+import { Footer } from "./components/Styles/Footer";
 import styled from "styled-components";
+import Routes from './routes';
+import fundo from './img/fundo.jpeg';
+import { BrowserRouter } from "react-router-dom";
 
-const Container = styled.div`
+export const AppWrapper = styled.main`
+  margin: 0;
+  width: 100vw;
   height: 100vh;
-  background-color: red;
   display: flex;
   flex-direction: column;
-`
+  align-items: center;
+  justify-content: center;
+  background-size: 100%;
+  background-image: url(${fundo});
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+`;
 
 function App() {
-  return <Container>
-    <Header/>
-    <Main/>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <HomePage/>
-        </Route>
-
-        <Route exact path="/signup-user">
-          <UserSignupPage/>
-        </Route>
-
-        <Route exact path="/signup-band">
-          <BandSignupPage/>
-        </Route>
-        
-        <Route exact path="/signup-admin">
-          <AdminSignupPage/>
-        </Route>
-
-        <Route exact path="/login-user">
-          <UserLoginPage/>
-        </Route>
-
-        <Route exact path="/login-admin">
-          <AdminLoginPage/>
-        </Route>
-
-        <Route exact path="/admin">
-          <AdminPage/>
-        </Route>
-
-        <Route exact path="/user">
-          <UserPage/>
-        </Route>
-
-        <Route exact path="/band">
-          <BandPage/>
-        </Route>
-
-      </Switch>
-    </Router>
-  </Container>
+  return (
+    <AppWrapper>
+      <BrowserRouter>
+        <Header/>
+        <Routes/>
+        <Footer/>
+      </BrowserRouter>
+    </AppWrapper>
+  );
 }
 
 export default App;
