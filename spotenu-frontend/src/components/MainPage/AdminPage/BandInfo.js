@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { IconButton } from "@material-ui/core";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
@@ -16,17 +15,16 @@ export const BandInfo = (props) => {
   };
 
   return (
-    <AdminContainer>
-      {props.unapprovedBands.map((band) => {
-        
+    <div>
+      {props.bands.filter(band => !band.isApproved).map((band) => {
         return (
-          <div>
+          <AdminContainer>
             <BandContainer>
-              <p>{band.name}</p>
+              <p><strong>Nome: </strong>{band.name}</p>
             </BandContainer>
 
             <DescriptionContainer>
-              <p>{band.description}</p>
+              <p><strong>Descrição: </strong> {band.description}</p>
             </DescriptionContainer>
 
             <IconsContainer>
@@ -37,9 +35,9 @@ export const BandInfo = (props) => {
                 <ThumbDownIcon />
               </IconButton>
             </IconsContainer>
-          </div>
+          </AdminContainer>
         );
       })}
-    </AdminContainer>
+    </div>
   );
 };

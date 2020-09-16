@@ -13,7 +13,7 @@ export const AdminPage = () => {
     axios
       .get("http://localhost:3003/band/view-bands", {
         headers: {
-          authenticator: window.localStorage.getItem("token"),
+          authorization: window.localStorage.getItem("token"),
         },
       })
       .then((response) => {
@@ -21,43 +21,30 @@ export const AdminPage = () => {
       });
   };
 
-  const unapprovedBands = []
-
-  const getUnapprovedBands = () => {
-    
-    bands.filter((band)=> {
-        if(band.isApproved===0){
-             unapprovedBands.push(band)
-        }
-        return unapprovedBands
-    })
-    return unapprovedBands
-
-  }
-
   useEffect(() => {
-    getUnapprovedBands();
+    getBandsList();
   }, []);
 
-  
-  const approveBand = (id) => {
-    axios.post(
+  const approveBand = async (id) => {
+   await axios.post(
       "http://localhost:3003/band/band-approval",
       { id },
       {
         headers: {
-          authenticator: window.localStorage.getItem("token"),
+          authorization: window.localStorage.getItem("token"),
         },
       }
-    );
+    )
     getBandsList();
+
   };
+
 
   return (
     <div>
       <PageTitle title={"Aprovação de bandas"} />
-      {unapprovedBands ? (
-        <BandInfo unapprovedBands={unapprovedBands} approveBand={approveBand} />
+      {bands ? (
+        <BandInfo bands={bands} approveBand={approveBand} />
       ) : (
         <div>Carregando...</div>
       )}

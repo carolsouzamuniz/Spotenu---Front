@@ -73,6 +73,9 @@ export const FavoriteIconContainer = styled.div`
   grid-row: 1/3;
   align-self: center;
   justify-self: center;
+  :hover{
+    cursor: pointer;
+  }
 `;
 export const MusicContainer = styled.div`
   grid-column: 1/2;
@@ -90,3 +93,9 @@ export const ItensBandContainer = styled.div`
   justify-content: center;
   
 `;
+
+export const ItemListContainer = styled.div`
+  display: grid;
+  grid-column: 1fr;
+
+`

@@ -3,9 +3,11 @@ import {
   ImageContainer,
   ItemInfo,
   InfoMusicContainer,
-  FavoriteIconContainer, 
-  MusicContainer, 
-  BandContainer
+  FavoriteIconContainer,
+  MusicContainer,
+  BandContainer,
+  TitleContainer,
+  ItensContainer,
 } from "./style";
 import banda from "../../../img/banda.jpg";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
