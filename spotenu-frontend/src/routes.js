@@ -9,7 +9,11 @@ import { AdminLoginPage } from "./components/LoginPages/AdminLoginPage";
 import { AdminPage } from "./components/MainPage/AdminPage";
 import { UserPage } from "./components/MainPage/UserPage";
 import { BandPage } from "./components/MainPage/BandPage";
-import { RegisterMusic } from "./components/MainPage/BandPage/RegisterMusic";
+import { Menu2 } from "./components/MainPage/UserPage/Menus/Menu2";
+import { Menu3 } from "./components/MainPage/UserPage/Menus/Menu3";
+import { Menu4 } from "./components/MainPage/UserPage/Menus/Menu4";
+import { Menu5 } from "./components/MainPage/UserPage/Menus/Menu5";
+import { Menu6 } from "./components/MainPage/UserPage/Menus/Menu6";
 
 const Routes = () => {
   return (
@@ -23,6 +27,13 @@ const Routes = () => {
       <Route component={AdminPage} exact path="/admin" />
       <Route component={UserPage} exact path="/user" />
       <Route component={BandPage} exact path="/band" />
+      <Route component={Menu2} exact path="/user/menu2" />
+      <Route component={Menu3} exact path="/user/menu3" />
+      <Route component={Menu4} exact path="/user/menu4" />
+      <Route component={Menu5} exact path="/user/menu5" />
+      <Route component={Menu6} exact path="/user/menu6" />
+
+
     </Switch>
   );
 };

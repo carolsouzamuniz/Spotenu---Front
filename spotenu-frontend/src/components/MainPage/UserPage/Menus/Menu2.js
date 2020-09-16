@@ -1,14 +1,14 @@
 import React from "react";
-import { ItensList } from "./ItensList";
+import { ItensList } from "../ItensList";
 import {
   UserContainer,
   ItensContainer,
   ItensElements,
   MenuContainer,
   TitleContainer
-} from "./style";
+} from "../style";
 
-export const UserPage = () => {
+export const Menu2 = () => {
   const menu1 = "Em alta"
   const menu2 = "Lançamento"
   const menu3 = "Rock"
@@ -19,8 +19,8 @@ export const UserPage = () => {
   return (
     <UserContainer>
       <MenuContainer>
-        <p><a href='#'><strong>{menu1}</strong></a></p>
-        <p><a href='/user/menu2'>{menu2}</a></p>
+        <p><a href='/user'>{menu1}</a></p>
+        <p><a href='#'><strong>{menu2}</strong></a></p>
         <p><a href='/user/menu3'>{menu3}</a></p>
         <p><a href='/user/menu4'>{menu4}</a></p>
         <p><a href='/user/menu5'>{menu5}</a></p>
@@ -28,11 +28,9 @@ export const UserPage = () => {
       </MenuContainer>
       <ItensContainer>
       <TitleContainer>
-        <h1>{menu1}</h1>  
+        <h1>{menu2}</h1>  
       </TitleContainer>
         <ItensElements>
-          <ItensList />
-          <ItensList />
           <ItensList />
           <ItensList />
           <ItensList />
