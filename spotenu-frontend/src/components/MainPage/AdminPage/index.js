@@ -3,6 +3,10 @@ import axios from "axios";
 import { useProtectedPage } from "../../../hooks/useProtectedPage";
 import { PageTitle } from "../../PageTitle";
 import { BandInfo } from "./BandInfo";
+import { AdminSignupPage } from "../../SignupPages/AdminSignupPage";
+import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { LinkContainer } from "./style";
 
 export const AdminPage = () => {
   const [bands, setBands] = useState([]);
@@ -36,10 +40,9 @@ export const AdminPage = () => {
       }
     )
     getBandsList();
-
   };
 
-
+ 
   return (
     <div>
       <PageTitle title={"Aprovação de bandas"} />
@@ -48,6 +51,9 @@ export const AdminPage = () => {
       ) : (
         <div>Carregando...</div>
       )}
+      
+        <Link to={"/signup-admin"}>Cadastrar novo Administrador</Link>
+    
     </div>
   );
 };

@@ -29,7 +29,7 @@ export const BandSignupPage = () => {
     event.preventDefault();
 
     const body = {
-      name: form.email,
+      name: form.name,
       email: form.email,
       nickname: form.nickname,
       description: form.description,
