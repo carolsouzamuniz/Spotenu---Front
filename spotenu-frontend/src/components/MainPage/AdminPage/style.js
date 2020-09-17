@@ -28,3 +28,5 @@ export const IconsContainer = styled.div`
   align-self: center;
   justify-self: center;
 `;
+
+

@@ -28,17 +28,19 @@ export const AdminSignupPage = () => {
     event.preventDefault();
 
     const body = {
-      name: name,
-      email: email,
-      nickname: nickname,
-      password: password,
+      name: form.name,
+      email: form.email,
+      nickname: form.nickname,
+      password: form.password,
     };
 
     axios
-      .post("http://localhost:3003/user/signupUSER", body)
+      .post("http://localhost:3003/user/signupADMIN", body, {
+        headers: {
+          authorization: window.localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
-        window.localStorage.setItem("token", response.data.token);
-        window.localStorage.setItem("userType", response.data.type);
         alert("Your registration was successful");
         history.push("/admin"); //voltar para a home já lodago
       })
@@ -48,10 +50,10 @@ export const AdminSignupPage = () => {
       });
   };
 
-  return <div>
+  return (
+    <div>
       <PageTitle title={"Cadastro-admin"} />
       <FormWrapper onSubmit={onSubmitInput}>
-        
         <TextField
           label="Nome"
           variant="outlined"
@@ -93,7 +95,6 @@ export const AdminSignupPage = () => {
         />
         <ButtonWrapper type="submit" value="Cadastrar" />
       </FormWrapper>
-  </div>
-}
-
-
+    </div>
+  );
+};
